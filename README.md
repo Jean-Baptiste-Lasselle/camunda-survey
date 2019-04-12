@@ -26,3 +26,9 @@ https://docs.camunda.org/get-started/quick-start/service-task/
 ## Deploy and run the task
 
 
+# ANNEXES 
+
+## SOURCES Camunda
+
+https://github.com/camunda/docker-camunda-bpm-platform
+

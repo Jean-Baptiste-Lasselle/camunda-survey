@@ -4,10 +4,10 @@
 ##  Installing it
 
 ```bash
-export URI_DE_CE_REPO=git@github.com:Jean-Baptiste-Lasselle/camunda-survey.git
+export URI_DE_CE_REPO=https://github.com/Jean-Baptiste-Lasselle/camunda-survey
 mkdir -p ./camunda-survey/ 
-git clone $URI_DE_CE_REPO ./camunda-survey/
-cd ./camunda-survey/
+cd ./camunda-survey/ 
+git clone $URI_DE_CE_REPO ./
 chmod +x ./operations.sh
  ./operations.sh
 

@@ -21,10 +21,11 @@ RUN ls -allh ~/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler
 # RUN cat ~/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler
 # RUN chmod +x ~/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler.sh
 
-WORKDIR ~/modeler/camunda-modeler-3.0.1-linux-x64 
+WORKDIR /root/modeler/camunda-modeler-3.0.1-linux-x64/ 
 
 EXPOSE $NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER/tcp
 # Running as root, shoudl be changed to an non-root user, with 
 # sufficient permissions, regarding what the camunda modeler 
 # app needs to be authrorized to do
 CMD ["/root/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler"]
+

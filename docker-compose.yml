@@ -26,7 +26,7 @@ services:
   camunda_engine:
     # hostname: '$NOM_DE_SOUS_DOMAINE_CAMUNDA_ENGINE'
 #     container_name: "$NOM_CONTENEUR_CAMUNDA_ENGINE"
-    image: poste-devops-typique:5000/pegasus-devops.io/camunda-web:0.0.1
+    image: camunda/camunda-bpm-platform:latest
     # image: poste-devops-typique:5000/pegasus-devops.io/camunda-web:0.0.1
     # build:
     #   context: ./docker/camunda/engine/Dockerfile

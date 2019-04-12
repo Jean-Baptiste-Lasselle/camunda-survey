@@ -11,15 +11,17 @@ RUN apk update && apk add curl git tar
 
 # Installing Camunda Modeler App
 RUN curl -o ./camunda-modeler-3.0.1-linux-x64.tar.gz -L $CAMUNDA_WEB_MODELER_DOWNLOAD_URI
-RUN mkdir ~/modeler
-RUN tar -xvf ./camunda-modeler-3.0.1-linux-x64.tar.gz -C ~/modeler/
+RUN mkdir /root/modeler
+RUN tar -xvf ./camunda-modeler-3.0.1-linux-x64.tar.gz -C /root/modeler/
 
 RUN pwd && ls -allh
-RUN ls -allh ~/modeler/camunda-modeler-3.0.1-linux-x64
-RUN chmod +x ~/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler
-RUN ls -allh ~/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler
+RUN ls -allh /root/modeler/camunda-modeler-3.0.1-linux-x64
+RUN chmod +x /root/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler
+RUN ls -allh /root/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler
 # RUN cat ~/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler
 # RUN chmod +x ~/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler.sh
+
+USER root
 
 WORKDIR /root/modeler/camunda-modeler-3.0.1-linux-x64/ 
 

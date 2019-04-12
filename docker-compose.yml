@@ -36,15 +36,15 @@ services:
     # environment:
       # CAMUNDA_ENV est en particulier utile pour définir une configuration de RUN pour la prod
       # - CAMUNDA_ENV=$CAMUNDA_ENV
-#     ports:
-#       - $NUM_PORT_ECOUTE_CAMUNDA_ENGINE:$NUM_PORT_ECOUTE_CAMUNDA_ENGINE_IN_CONTAINER
-#     expose:
-#       - $NUM_PORT_ECOUTE_CAMUNDA_ENGINE_IN_CONTAINER/tcp
+    ports:
+      - $NUM_PORT_ECOUTE_CAMUNDA_ENGINE:$NUM_PORT_ECOUTE_CAMUNDA_ENGINE_IN_CONTAINER
+    expose:
+      - $NUM_PORT_ECOUTE_CAMUNDA_ENGINE_IN_CONTAINER/tcp
     networks:
       - "$NOM_DU_RESEAU_DEMO_CAMUNDA"
       
     restart: always
-#     command: yum update -y && yum install -y iputils && ping -c 4 localhost
+#     command: yum update -y && yum install -y iputils && ping -c 4 localhost 
 
 networks:
   # donc dans le fichier ["./.env]", on doit trouver la déclaration de variable [NOM_DU_RESEAU_DEMO_CAMUNDA_JINJA2_VAR=reseau_camunda]

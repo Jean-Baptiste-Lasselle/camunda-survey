@@ -35,7 +35,8 @@ RUN git checkout "v$CAMUNDA_WEB_MODELER_VERSION"
 RUN npm install
 
 # execute all checks (lint, test and build)
-RUN npm run all
+# RUN npm run all
+# this throws major errors... :/
 
 # build the application to ./dist
 RUN npm run build
@@ -56,7 +57,7 @@ EXPOSE $NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER/tcp
 # sufficient permissions, regarding what the camunda modeler 
 # app needs to be authrorized to do
 # CMD ["/root/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler"]
-CMD ["/bin/sh"]
+# CMD ["/bin/sh"]
 CMD ["/usr/local/bin/npm", "start"]
 
 

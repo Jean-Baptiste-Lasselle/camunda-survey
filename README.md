@@ -4,8 +4,12 @@
 ##  Installing it
 
 ```bash
-docker pull camunda/camunda-bpm-platform:latest
-docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:latest
+export URI_DE_CE_REPO=git@github.com:Jean-Baptiste-Lasselle/camunda-survey.git
+mkdir -p ./camunda-survey/ 
+git clone $URI_DE_CE_REPO ./camunda-survey/
+cd ./camunda-survey/
+chmod +x ./operations.sh
+ ./operations.sh
 
 ```
 

@@ -12,6 +12,17 @@ export NUM_PORT_ECOUTE_CAMUNDA_WEB=8092
 
 export CAMUNDA_WEB_MODELER_DOWNLOAD_URI="https://camunda.org/release/camunda-modeler/3.0.1/camunda-modeler-3.0.1-linux-x64.tar.gz"
 
+
+# 
+# https://github.com/camunda/camunda-modeler
+export CAMUNDA_WEB_MODELER_GIT_SCM_URI=$CAMUNDA_WEB_MODELER_GIT_SCM_URI
+# 
+# Must Be a valid Camunda Modeler RELEASE version strictly SEMVER
+export CAMUNDA_WEB_MODELER_VERSION=$CAMUNDA_WEB_MODELER_VERSION
+
+
+
+
 # 
 # >>>>>  Interpolation de l'environnement Docker.
 # 
@@ -24,6 +35,8 @@ sed -i "s#NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER_JINJA2_VAR#$NUM_PORT_ECOUTE_C
 sed -i "s#NUM_PORT_ECOUTE_CAMUNDA_WEB_JINJA2_VAR#$NUM_PORT_ECOUTE_CAMUNDA_WEB#g" ./.env
 sed -i "s#CAMUNDA_WEB_MODELER_DOWNLOAD_URI_JINJA2_VAR#$CAMUNDA_WEB_MODELER_DOWNLOAD_URI#g" ./.env
 
+sed -i "s#CAMUNDA_WEB_MODELER_GIT_SCM_URI_JINJA2_VAR#$CAMUNDA_WEB_MODELER_GIT_SCM_URI#g" ./.env
+sed -i "s#CAMUNDA_WEB_MODELER_VERSION_JINJA2_VAR#$CAMUNDA_WEB_MODELER_VERSION#g" ./.env
 
 # 
 # Fichiers interpolés secondaires : 

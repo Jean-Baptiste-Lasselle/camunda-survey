@@ -4,10 +4,10 @@ services:
   camunda_web:
     # hostname: '$NOM_DE_SOUS_DOMAINE_CAMUNDA_WEB'
     # container_name: "$NOM_CONTENEUR_CAMUNDA_WEB"
-    image: poste-devops-typique:5000/pegasus-devops.io/camunda-web:0.0.1
+    image: 'poste-devops-typique:5000/pegasus-devops.io/camunda-web:0.0.1'
     # image: poste-devops-typique:5000/pegasus-devops.io/camunda-web:0.0.1
-    # build:
-    #   context: ./docker/camunda/web/Dockerfile
+    build:
+      context: ./docker/camunda/web/Dockerfile
       args:
         # CAMUNDA_ENV est en particulier utile pour définir une configuration de build pour la prod
         - CAMUNDA_WEB_MODELER_DOWNLOAD_URI=$CAMUNDA_WEB_MODELER_DOWNLOAD_URI
@@ -33,9 +33,9 @@ services:
     # image: poste-devops-typique:5000/pegasus-devops.io/camunda-web:0.0.1
     # build:
     #   context: ./docker/camunda/engine/Dockerfile
-      args:
+    #  args:
         # CAMUNDA_ENV est en particulier utile pour fdéfinir une configuration de build pour la prod
-        - NUM_PORT_ECOUTE_CAMUNDA_ENGINE_IN_CONTAINER=$NUM_PORT_ECOUTE_CAMUNDA_ENGINE_IN_CONTAINER
+        # - NUM_PORT_ECOUTE_CAMUNDA_ENGINE_IN_CONTAINER=$NUM_PORT_ECOUTE_CAMUNDA_ENGINE_IN_CONTAINER
     environment:
       # CAMUNDA_ENV est en particulier utile pour définir une configuration de RUN pour la prod
       - NUM_PORT_ECOUTE_CAMUNDA_ENGINE_IN_CONTAINER=$NUM_PORT_ECOUTE_CAMUNDA_ENGINE_IN_CONTAINER

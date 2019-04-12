@@ -8,9 +8,9 @@ services:
     # image: poste-devops-typique:5000/pegasus-devops.io/camunda-web:0.0.1
     # build:
     #   context: ./docker/camunda/web/Dockerfile
-    #   args:
+      args:
         # CAMUNDA_ENV est en particulier utile pour définir une configuration de build pour la prod
-        # - CAMUNDA_ENV=$CAMUNDA_ENV
+        - CAMUNDA_WEB_MODELER_DOWNLOAD_URI=$CAMUNDA_WEB_MODELER_DOWNLOAD_URI
 #     environment:
       # CAMUNDA_ENV est en particulier utile pour définir une configuration de RUN pour la prod
       # - CAMUNDA_ENV=$CAMUNDA_ENV

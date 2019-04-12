@@ -56,6 +56,6 @@ EXPOSE $NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER/tcp
 # app needs to be authrorized to do
 # CMD ["/root/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler"]
 CMD ["/bin/sh"]
-CMD ["/usr/bin/npm", "start"]
+CMD ["/usr/local/bin/npm", "start"]
 
 

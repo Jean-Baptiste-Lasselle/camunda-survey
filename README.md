@@ -16,7 +16,8 @@ chmod +x ./operations.sh
 
 ##  Create A task
 
-Just GUI clicks n' drops
+Just GUI clicks n' drops at http://poste-devops-typique:8091/camunda
+
 
 
 ## Implement the task in NodeJS

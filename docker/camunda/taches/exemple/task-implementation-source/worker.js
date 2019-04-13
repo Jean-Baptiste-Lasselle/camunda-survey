@@ -3,8 +3,8 @@ const { Client, logger } = require('camunda-external-task-client-js');
 
 // A better Env
 
-const POLLING_HOST=process.env.POLLONG_HOST || localhost;
-const POLLING_PORT=process.env.POLLONG_PORT || 8085;
+const POLLING_HOST=process.env.POLLONG_HOST || 'localhost';
+const POLLING_PORT=process.env.POLLONG_PORT || '8085';
 
 
 

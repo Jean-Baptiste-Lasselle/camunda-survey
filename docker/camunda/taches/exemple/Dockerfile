@@ -33,11 +33,14 @@ RUN mkdir /root/pegasus-task
 
 # BUILD APP
 ADD task-implementation-source/ /root/pegasus-task/
+WORKDIR /root/pegasus-task
 RUN npm install
 
+
+# RUN APP
 USER root
 
-WORKDIR /root/pegasus-task
+
 
 EXPOSE $NUM_PORT_ECOUTE_PEGASUS_TASK_IN_CONTAINER/tcp
 # Running as root, shoudl be changed to an non-root user, with

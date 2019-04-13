@@ -52,7 +52,7 @@ https://docs.camunda.org/get-started/quick-start/service-task/
 
 * Un des points d'intégration est le nom donné à la tâche : 
 ```bash
-export CONDUITE_IO_TASK_NAME=ccc
+export CONDUITE_IO_TASK_NAME=tache-pegasus
 ```
 * qui est repris par le paramètre `topic`, que l'on configure dans le fichier `bpmn 2.0` : 
 
@@ -67,7 +67,8 @@ On remarquera enfin l'intégration à l'infrastructure avec le nom d'hôte et le
 # le screenshot ci-dessus, pour le paramètre `topic`, que l'on
 # configure dans le fichier `bpmn 2.0`
 # 
-export CONDUITE_IO_TASK_NAME=preparation-sandwich-operation-ninja
+# export CONDUITE_IO_TASK_NAME=preparation-sandwich-operation-ninja
+export CONDUITE_IO_TASK_NAME=tache-pegasus
 export POLLING_HOST=poste-devops-typique
 
 # 

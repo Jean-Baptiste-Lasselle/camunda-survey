@@ -31,5 +31,3 @@ npm audit fix
 npm install 
 
 npm run build
-cd ./client 
-npm start -- --host 0.0.0.0 --port $NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER

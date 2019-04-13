@@ -50,6 +50,35 @@ Just GUI clicks n' drops at http://poste-devops-typique:8091/camunda
 
 https://docs.camunda.org/get-started/quick-start/service-task/
 
+* Un des points d'intégration est le nom donné à la tâche : 
+```bash
+export CONDUITE_IO_TASK_NAME=ccc
+```
+* qui est repris par le paramètre `topic`, que l'on configure dans le fichier `bpmn 2.0` : 
+
+![param intégration impl taches bpmn](https://github.com/Jean-Baptiste-Lasselle/camunda-survey/raw/master/documentation/images/CAMUNDA_BPMN_TASK_IMPLEMENTATION_TOUS_LES_PARAMETRES_INTEGRATION_2019-04-13%2007-10-13.png)
+
+On remarquera enfin l'intégration à l'infrastructure avec le nom d'hôte et le numéro de port, qui sont aussi configurables par les variables d'environnement suivantes : 
+
+```bash
+
+# 
+# La valeur de CONDUITE_IO_TASK_NAME doit correspondre à celle vue dans
+# le screenshot ci-dessus, pour le paramètre `topic`, que l'on
+# configure dans le fichier `bpmn 2.0`
+# 
+export CONDUITE_IO_TASK_NAME=preparation-sandwich-operation-ninja
+export POLLING_HOST=poste-devops-typique
+
+# 
+# cf. [./operations.sh] export NUM_PORT_ECOUTE_CAMUNDA_ENGINE=8091
+# cf. [./.env] NUM_PORT_ECOUTE_CAMUNDA_ENGINE=NUM_PORT_ECOUTE_CAMUNDA_ENGINE_JINJA2_VAR
+# 
+export NUM_PORT_ECOUTE_CAMUNDA_ENGINE=8093
+export POLLING_PORT=$NUM_PORT_ECOUTE_CAMUNDA_ENGINE
+echo "Now You may execute the regular provisioning reicpe"
+```
+
 ## Deploy and run the task
 
 # RESTE PLUS QUE ça

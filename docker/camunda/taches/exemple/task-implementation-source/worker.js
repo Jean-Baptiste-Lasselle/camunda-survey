@@ -3,8 +3,10 @@ const { Client, logger } = require('camunda-external-task-client-js');
 
 // A better Env
 
-const POLLING_HOST=process.env.POLLING_HOST || 'localhost';
-const POLLING_PORT=process.env.POLLING_PORT || '8085';
+const POLLING_HOST = process.env.POLLING_HOST || 'localhost';
+const POLLING_PORT = process.env.POLLING_PORT || '8085';
+const CONDUITE_IO_TASK_NAME = process.env.CONDUITE_IO_TASK_NAME || 'MiseAJourDocuements';
+
 
 
 
@@ -19,7 +21,7 @@ const config = { baseUrl: 'http://' + POLLING_HOST + ':' + POLLING_PORT + '/engi
 const client = new Client(config);
 
 // susbscribe to the topic: 'charge-card'
-client.subscribe('charge-card', async function({ task, taskService }) {
+client.subscribe(CONDUITE_IO_TASK_NAME, async function({ task, taskService }) {
   // Put your business logic here
 
   // Get a process variable

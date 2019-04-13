@@ -19,6 +19,12 @@ chmod +x ./operations.sh
 * The camunda bpmn engine is installed and started on `http://whatever-yourhost-is:8091/camunda/` : use `demo` / `demo` as useranme and password.
 * With the `Camunda Modeler`, you'll be able to create a task, and deploy it to the camunda bpmn engine
 
+* This might be a convenient copy-paste shortcut :
+
+```bash
+docker-compose down --rmi all && docker system prune -f && cd ../ && rm -fr ./camunda-survey/
+```
+
 ### Installing the Camunda Modeler
 
 The Camunda Modeler is a Desktop ELectronJS App, and you can install it on your machine with :

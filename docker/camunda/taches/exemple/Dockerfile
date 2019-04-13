@@ -1,5 +1,5 @@
 # FROM openjdk:7-jre-alpine
-FROM node:8.15.1-alpine 
+FROM node:8.15.1-alpine
 
 
 # https://docs.camunda.org/get-started/quick-start/service-task/#implement-the-nodejs-script
@@ -25,10 +25,10 @@ RUN mkdir /root/pegasus-task
 WORKDIR /root/pegasus-task
 
 # BUILD APP
-ADD task-implementation-source/* /root/pegasus-task
+ADD task-implementation-source/ /root/pegasus-task/
 RUN npm install
 
-ADD ./start-camunda-modeler.sh . 
+ADD ./start-camunda-modeler.sh .
 RUN cp ./start-camunda-modeler.sh /root/modeler/client/
 RUN chmod +x /root/modeler/client/start-camunda-modeler.sh
 
@@ -45,8 +45,8 @@ USER root
 WORKDIR /root/modeler/client
 
 EXPOSE $NUM_PORT_ECOUTE_PEGASUS_TASK_IN_CONTAINER/tcp
-# Running as root, shoudl be changed to an non-root user, with 
-# sufficient permissions, regarding what the camunda modeler 
+# Running as root, shoudl be changed to an non-root user, with
+# sufficient permissions, regarding what the camunda modeler
 # app needs to be authrorized to do
 # CMD ["/bin/sh"]
 CMD ["/usr/local/bin/node", "worker.js"]

@@ -106,9 +106,35 @@ echo "Now You may execute the regular provisioning reicpe"
 
 ## Deploy and run the task
 
-# RESTE PLUS QUE ça
+Use the camunda modeler, to deploy the process defintion :
+* with any name you want, it won't change anything whaen you click deploy.
+* Leave the `Business Key` field empty, it's not time to discuss that, same thing when you'll cross raods with some so-called `tenant-ID`
+* All you have to let the Camunda Modeler know about, is how to reach the Camunda Engine REST API Endpoint, which will be available at the following `URL` :
+```bash
+http://$POLLING_HOST:$POLLING_PORT/engine-rest
+```
 
-https://github.com/Jean-Baptiste-Lasselle/camunda-survey/issues/3
+Where `$POLLING_HOST` and `$POLLING_PORT` respectively are net hostname and tcp port number on which the Camunda Engine REST API endpoint is listening.
+
+In a prodcution mode, it might be a good idea, that will make sense to your secops, to configure regular Camunda Engine WebApp and Camunda API Endpoint to use different network interfaces on the host system. An event better optiosn would be to be able to deploy REST API and webclient as two separate applications. We'll find that out later on.  
+
+
+# My Conclusions
+
+* With Camunda Engine and Camunda Modeler, We have enough to get a complete workflow working wih BPMN, and that flow is automation-compatible (we'll be able to automate the process).
+* Jobs / Run orchestration, and transactional / accountability,  are completely different matters.
+* So I'll first just rip off Any Run Orchestration features of Camunda Engine.  I'll only care about :
+  * its ability to execute a given process,
+  * its ability to be a reference, for the actual processes use at a given moment, in an organisation. Inluding BPMN buuilt-in versioning, that will have to be `ARE YOU BPMN as Code` (Synchronized with a finer, and compatible versioning, on a git repo, the BPMN version tags, being matched to the git repo `RELEASE tags`)
+  * its ability to provide Process Execution Accountability, on which relies Business Activity Monitoring pattern.
+
+It might be a good thing to try an alternative to camunda engine, that is :
+* https://github.com/catify/bpmn-engine
+* because it's based on akka.io, and well, we'll have fun with scaling out,
+* And finally because I might end up where I won't be happy with Camunda Process Execution Accountability, so... might instaed use Kafka and some database on the stream way (Thank u F. Ramière..)
+* Btw, Camunda is turning on heels, with zeebe.io, it feels like they're on the edge of a major turn in future support plans : SO it's time to go and see what they've got, in other boutiques.
+* Time to try https://github.com/catify/bpmn-engine , and Dive in different designer minds, to keep ourselves independent from Camunda Designer's. Fresh it up. See the world from a different Mountain.
+
 
 # ANNEXES
 

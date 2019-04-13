@@ -72,7 +72,7 @@ mkdir -p ./bpmn-modeler/
 docker-compose down --rmi all && docker system prune -f && docker-compose up -d
 
 # Now we should be able to start the task execution with A Camunda Engine REST API call
-export CHARGE_DE_TRAVAIL_JSON='{"variables": {"amount": {"value":555,"type":"long"}, "item": {"value":"item-xyz"} } }' ;
+export CHARGE_DE_TRAVAIL_JSON='{"variables": {"amount": {"value":555,"type":"long"}, "item": {"value":"Achat CAsque Oculus Rift FNC"} } }' ;
 
 startImplementedTask () {
   curl -H "Content-Type: application/json" -X POST -d $CHARGE_DE_TRAVAIL_JSON "http://$POLLING_HOST:$POLLING_PORT/engine-rest/process-definition/key/$CONDUITE_IO_TASK_NAME/start"

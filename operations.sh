@@ -10,14 +10,16 @@ export NUM_PORT_ECOUTE_CAMUNDA_ENGINE=8091
 export NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER=8080
 export NUM_PORT_ECOUTE_CAMUNDA_WEB=8092
 
-export CAMUNDA_WEB_MODELER_DOWNLOAD_URI="https://camunda.org/release/camunda-modeler/3.0.1/camunda-modeler-3.0.1-linux-x64.tar.gz"
 
 # 
 # https://github.com/camunda/camunda-modeler
 export CAMUNDA_WEB_MODELER_GIT_SCM_URI=https://github.com/camunda/camunda-modeler
+
 # 
 # Must Be a valid Camunda Modeler RELEASE version strictly SEMVER
+# 
 export CAMUNDA_WEB_MODELER_VERSION=3.0.1
+export CAMUNDA_WEB_MODELER_DOWNLOAD_URI="https://camunda.org/release/camunda-modeler/$CAMUNDA_WEB_MODELER_VERSION/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64.tar.gz"
 
 
 

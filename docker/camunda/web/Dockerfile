@@ -31,15 +31,12 @@ WORKDIR /root/modeler
 RUN git clone $CAMUNDA_WEB_MODELER_GIT_SCM_URI .
 RUN git checkout "v$CAMUNDA_WEB_MODELER_VERSION"
 
-# install dependencies
-RUN npm install
 
-# execute all checks (lint, test and build)
-# RUN npm run all
-# this throws major errors... :/
 
-# build the application to ./dist
-RUN npm run build
+# BUILD APP
+ADD build-camunda-modeler.sh .
+RUN chmod +X ./build-camunda-modeler.sh
+RUN ./build-camunda-modeler.sh
 
 # RUN pwd && ls -allh
 # RUN ls -allh /root/modeler/camunda-modeler-3.0.1-linux-x64

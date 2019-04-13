@@ -1,0 +1,19 @@
+{
+  "name": "pegasus-tache",
+  "version": "0.0.2",
+  "description": "Une TÃ¢che CAmunda implÃ©entÃ©e en NodeJS",
+  "main": "worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "camunda",
+    "bpmn",
+    "nodejs"
+  ],
+  "author": "Jean-Baptiste Lasselle",
+  "license": "MIT",
+  "dependencies": {
+    "camunda-external-task-client-js": "^1.1.1"
+  }
+}

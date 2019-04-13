@@ -58,7 +58,7 @@ sed -i "s#CAMUNDA_WEB_MODELER_OPTIONS_JINJA2_VAR#$CAMUNDA_WEB_MODELER_OPTIONS#g"
 # Camunda Task Implementation Worker
 sed -i "s#POLLING_HOST_JINJA2_VAR#$POLLING_HOST#g" ./.env
 sed -i "s#POLLING_PORT_JINJA2_VAR#$POLLING_PORT#g" ./.env
-
+sed -i "s#CONDUITE_IO_TASK_NAME_JINJA2_VAR#$CONDUITE_IO_TASK_NAME#g" ./.env
 
 #
 #    Fichiers interpolés secondaires :
@@ -77,3 +77,5 @@ export CHARGE_DE_TRAVAIL_JSON='{"variables": {"amount": {"value":555,"type":"lon
 startImplementedTask () {
   curl -H "Content-Type: application/json" -X POST -d $CHARGE_DE_TRAVAIL_JSON "http://$POLLING_HOST:$POLLING_PORT/engine-rest/process-definition/key/$CONDUITE_IO_TASK_NAME/start"
 }
+
+echo " Now all you have to do, is to use the Camunda Modeler to create a BPMN Process Definition , of ServiceTask Type, with connector external and [topic] ["$CONDUITE_IO_TASK_NAME"]  "

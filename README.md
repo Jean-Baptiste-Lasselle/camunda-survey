@@ -16,7 +16,25 @@ git clone $URI_DE_CE_REPO ./
 chmod +x ./operations.sh
  ./operations.sh
 ```
+
+
 * The camunda bpmn engine is installed and started on `http://whatever-yourhost-is:8091/camunda/` : use `demo` / `demo` as useranme and password.
+* If you execute `docker logs -f `, and the Camunda Implementation is in Good Health, you should have an output that looks like that :
+```bash
+# > ~/camunda-survey
+# $ docker logs -f camunda-survey_camunda_task_worker_1
+polling
+✓ subscribed to topic preparer-les-sandwich
+polling
+✓ polled 0 tasks
+polling
+✓ polled 0 tasks
+polling
+✓ polled 0 tasks
+polling
+
+```
+
 * With the `Camunda Modeler`, you'll be able to create a task, and deploy it to the camunda bpmn engine
 
 * This might be a convenient copy-paste shortcut :

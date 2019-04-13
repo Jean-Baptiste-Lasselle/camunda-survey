@@ -38,6 +38,11 @@ ADD build-camunda-modeler.sh .
 RUN chmod +x ./build-camunda-modeler.sh
 RUN ./build-camunda-modeler.sh
 
+ADD ./start-camunda-modeler.sh . 
+RUN cp ./start-camunda-modeler.sh /root/modeler/client/
+RUN chmod +x /root/modeler/client/start-camunda-modeler.sh
+
+
 # RUN pwd && ls -allh
 # RUN ls -allh /root/modeler/camunda-modeler-3.0.1-linux-x64
 # RUN chmod +x /root/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler
@@ -47,7 +52,7 @@ RUN ./build-camunda-modeler.sh
 
 USER root
 
-WORKDIR /root/modeler/camunda-modeler-3.0.1-linux-x64/client
+WORKDIR /root/modeler/client
 
 EXPOSE $NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER/tcp
 # Running as root, shoudl be changed to an non-root user, with 
@@ -55,6 +60,9 @@ EXPOSE $NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER/tcp
 # app needs to be authrorized to do
 # CMD ["/root/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler"]
 # CMD ["/bin/sh"]
-CMD ["/usr/local/bin/npm", "start"]
+# CMD ["/usr/local/bin/npm", "start"]
+CMD ["/root/modeler/client/start-camunda-modeler.sh"]
+
+
 
 

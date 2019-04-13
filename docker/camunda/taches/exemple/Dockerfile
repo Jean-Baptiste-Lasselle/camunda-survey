@@ -1,20 +1,15 @@
 # FROM openjdk:7-jre-alpine
 FROM node:8.15.1-alpine 
- 
-ARG CAMUNDA_WEB_MODELER_DOWNLOAD_URI=$CAMUNDA_WEB_MODELER_DOWNLOAD_URI
-ENV CAMUNDA_WEB_MODELER_DOWNLOAD_URI=$CAMUNDA_WEB_MODELER_DOWNLOAD_URI
 
-# https://github.com/camunda/camunda-modeler
-ARG CAMUNDA_WEB_MODELER_GIT_SCM_URI=$CAMUNDA_WEB_MODELER_GIT_SCM_URI
-ENV CAMUNDA_WEB_MODELER_GIT_SCM_URI=$CAMUNDA_WEB_MODELER_GIT_SCM_URI
 
-# Must Be a valid Camunda Modeler RELEASE version strictly SEMVER
-ARG CAMUNDA_WEB_MODELER_VERSION=$CAMUNDA_WEB_MODELER_VERSION
-ENV CAMUNDA_WEB_MODELER_VERSION=$CAMUNDA_WEB_MODELER_VERSION
+# https://docs.camunda.org/get-started/quick-start/service-task/#implement-the-nodejs-script
+# The Task runner actualy polls, pobably to register to Camunda bpmn engine;
+ARG POLLING_HOST=$POLLING_HOST
+ENV POLLING_HOST=$POLLING_HOST
 
-# Network
-ARG NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER=$NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER
-ENV NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER=$NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER
+ARG POLLING_PORT=$POLLING_PORT
+ENV POLLING_PORT=$POLLING_PORT
+
 
 # Node Env
 ENV NODE_ENV=production
@@ -25,18 +20,13 @@ RUN apk update && apk add curl git tar
 
 # Installing Camunda Modeler App
 # RUN curl -o ./camunda-modeler-3.0.1-linux-x64.tar.gz -L $CAMUNDA_WEB_MODELER_DOWNLOAD_URI
-RUN mkdir /root/modeler
+RUN mkdir /root/pegasus-task
 # RUN tar -xvf ./camunda-modeler-3.0.1-linux-x64.tar.gz -C /root/modeler/
-WORKDIR /root/modeler
-RUN git clone $CAMUNDA_WEB_MODELER_GIT_SCM_URI .
-RUN git checkout "v$CAMUNDA_WEB_MODELER_VERSION"
-
-
+WORKDIR /root/pegasus-task
 
 # BUILD APP
-ADD build-camunda-modeler.sh .
-RUN chmod +x ./build-camunda-modeler.sh
-RUN ./build-camunda-modeler.sh
+ADD task-implementation-source/* /root/pegasus-task
+RUN npm install
 
 ADD ./start-camunda-modeler.sh . 
 RUN cp ./start-camunda-modeler.sh /root/modeler/client/
@@ -59,4 +49,4 @@ EXPOSE $NUM_PORT_ECOUTE_PEGASUS_TASK_IN_CONTAINER/tcp
 # sufficient permissions, regarding what the camunda modeler 
 # app needs to be authrorized to do
 # CMD ["/bin/sh"]
-CMD ["/usr/local/bin/npm", "start"]
+CMD ["/usr/local/bin/node", "worker.js"]

@@ -1,4 +1,4 @@
-FROM FROM node:8.15.1-alpine
+FROM node:8.15.1-alpine
 
 # Must Be a valid Camunda Modeler RELEASE version strictly SEMVER
 ARG CAMUNDA_WEB_MODELER_VERSION=$CAMUNDA_WEB_MODELER_VERSION

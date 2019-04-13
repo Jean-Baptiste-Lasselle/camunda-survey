@@ -21,7 +21,8 @@ export CAMUNDA_WEB_MODELER_GIT_SCM_URI=https://github.com/camunda/camunda-modele
 export CAMUNDA_WEB_MODELER_VERSION=3.0.1
 export CAMUNDA_WEB_MODELER_DOWNLOAD_URI="https://camunda.org/release/camunda-modeler/$CAMUNDA_WEB_MODELER_VERSION/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64.tar.gz"
 
-
+# RUN OPTIONS FOR CAMUNDA MODELER
+export CAMUNDA_WEB_MODELER_OPTIONS=""
 
 
 # 
@@ -38,6 +39,11 @@ sed -i "s#CAMUNDA_WEB_MODELER_DOWNLOAD_URI_JINJA2_VAR#$CAMUNDA_WEB_MODELER_DOWNL
 
 sed -i "s#CAMUNDA_WEB_MODELER_GIT_SCM_URI_JINJA2_VAR#$CAMUNDA_WEB_MODELER_GIT_SCM_URI#g" ./.env
 sed -i "s#CAMUNDA_WEB_MODELER_VERSION_JINJA2_VAR#$CAMUNDA_WEB_MODELER_VERSION#g" ./.env
+
+# Camunda Modeler Desktop ElectronJS App
+sed -i "s#CAMUNDA_WEB_MODELER_OPTIONS_JINJA2_VAR#$CAMUNDA_WEB_MODELER_OPTIONS#g" ./.env
+
+
 
 # 
 # Fichiers interpolés secondaires : 

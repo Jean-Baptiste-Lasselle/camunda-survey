@@ -1,7 +1,7 @@
 {
   "name": "pegasus-tache",
   "version": "0.0.2",
-  "description": "Une TÃ¢che CAmunda implÃ©entÃ©e en NodeJS",
+  "description": "Une Tâche Camunda implémentée en NodeJS",
   "main": "worker.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

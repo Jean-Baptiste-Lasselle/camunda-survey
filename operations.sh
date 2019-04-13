@@ -58,4 +58,5 @@ docker-compose down --rmi all && docker system prune -f && docker-compose up -d
 
 # Now we should find Camunda Modeler Desktop App : 
 
+ls -allh ./bpmn-modeler/camunda-modeler
 ./bpmn-modeler/camunda-modeler

@@ -54,3 +54,7 @@ sed -i "s#NOM_DU_RESEAU_DEMO_CAMUNDA_JINJA2_VAR#$NOM_DU_RESEAU_DEMO_CAMUNDA#g" .
 
 
 docker-compose down --rmi all && docker system prune -f && docker-compose up -d
+
+# Now we should find Camunda Modeler Desktop App : 
+
+./bpmn-modeler/camunda-modeler

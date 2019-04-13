@@ -13,7 +13,7 @@ const POLLING_PORT=process.env.POLLING_PORT || '8085';
 //  - 'logger': utility to automatically log important events
 //  - 'asyncResponseTimeout': long polling timeout (then a new request will be issued)
 // const config = { baseUrl: 'http://localhost:8080/engine-rest', use: logger, asyncResponseTimeout: 10000 };
-const config = { baseUrl: 'http://' + POLLING_HOST + ":" + POLLING_PORT + '/engine-rest', use: logger, asyncResponseTimeout: 10000 };
+const config = { baseUrl: 'http://' + POLLING_HOST + ':' + POLLING_PORT + '/engine-rest', use: logger, asyncResponseTimeout: 10000 };
 
 // create a Client instance with custom configuration
 const client = new Client(config);

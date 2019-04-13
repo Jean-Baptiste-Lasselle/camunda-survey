@@ -34,7 +34,7 @@ tar -xvf ~/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64.tar.gz -C ~/.c
 ~/.camunda/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64/camunda-modeler
 # e.g.: ~/.camunda/camunda-modeler-3.0.1-linux-x64/camunda-modeler
 # Or :
-echo "export PATH=\"$PATH:~/.camunda/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64/camunda-modeler\"" >> ~/.bashrc
+echo "export PATH=\"\$PATH:~/.camunda/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64/\"" >> ~/.bashrc
 ```
 
 

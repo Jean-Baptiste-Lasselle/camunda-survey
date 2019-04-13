@@ -51,6 +51,8 @@ docker-compose down --rmi all && docker system prune -f && cd ../ && rm -fr ./ca
 
 The Camunda Modeler is a Desktop ELectronJS App, and you can install it on your machine with :
 
+* Veuillez exécuter :
+
 ```bash
 export CAMUNDA_WEB_MODELER_VERSION=3.0.1
 export CAMUNDA_WEB_MODELER_DOWNLOAD_URI="https://camunda.org/release/camunda-modeler/$CAMUNDA_WEB_MODELER_VERSION/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64.tar.gz"
@@ -61,12 +63,21 @@ tar -xvf ~/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64.tar.gz -C ~/.c
 # e.g.: ~/.camunda/camunda-modeler-3.0.1-linux-x64/camunda-modeler
 # Or :
 echo "export PATH=\"\$PATH:~/.camunda/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64/\"" >> ~/.bashrc
-# Then run it with a simple camunda-modeler  command
-camunda-modeler
+exit
+
 ```
 
+* Une fois ces instructions exécutées, la fenêtre de shelle s'est refermée :
+  * Ouvrez un dossier, avec l'explorateur graphqiue de l'OS (Le `File Manger`, symbolisé par une armoire de bureau, sur nos postes standards `Debian`)
+  * Naviguez là où vous souhaitez pour créer un répertoire, dans lequel vous enregistrerez vos fichiers `BPMN`
+  * Cliquez-droit dans la fenêtre du répertoire, et sélectionnez le menu `Open in Terminal`
+  * Veuillez maintenant taper au clavier les 3 lettres `cam`, puis pressez la touche `Tabulation`
+  * Then suddenly, an `ElectronJS` Application will fire up, the `Camunda BPMN Modeler`
+  * Pour terminer, cliquez [sur ce lien](https://www.youtube.com/watch?v=3wZ_b_uUAdQ)
+* L'administration vous fournira l'url du serveur pour le déploiement, et vous serez authentifié autpomatiquement avec votre `SSO`
 
-* Then suddenly, an `ElectronJS` Application will fire up, the `Camunda BPMN Modeler`
+
+
 
 ##  Create A task
 
@@ -122,6 +133,12 @@ Where `$POLLING_HOST` and `$POLLING_PORT` respectively are net hostname and tcp 
 
 In a prodcution mode, it might be a good idea, that will make sense to your secops, to configure regular Camunda Engine WebApp and Camunda API Endpoint to use different network interfaces on the host system. An event better optiosn would be to be able to deploy REST API and webclient as two separate applications. We'll find that out later on.  
 
+
+_**Apparte : Les `Business Keys` BPMN**_
+
+Le Camunda Modeler vous propose de paramétrer une chose apellée `business key`. Cette `business key` correspond exactement à la notion d'`Objet Pivot`, dans la vision de Porter (Harvard Business School), de l'entreprise étendue. Décrite rapidemet, cette notion permet d'échanger des données, d'un processus qui s'exécute, à un autre.
+
+https://blog.camunda.com/post/2018/10/business-key/
 
 # My Conclusions
 

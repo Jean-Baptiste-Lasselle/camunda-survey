@@ -14,6 +14,7 @@ npm install --save-dev babel-loader
 npm install --save-dev @babel/core
 npm install --save-dev @babel/plugin-syntax-dynamic-import
 npm install --save-dev @babel/plugin-proposal-class-properties
+npm install --save-dev @babel/preset-env
 
 
 # install dependencies

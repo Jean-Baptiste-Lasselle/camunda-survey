@@ -52,6 +52,7 @@ sed -i "s#CAMUNDA_WEB_MODELER_OPTIONS_JINJA2_VAR#$CAMUNDA_WEB_MODELER_OPTIONS#g"
 sed -i "s#NOM_DU_RESEAU_DEMO_CAMUNDA_JINJA2_VAR#$NOM_DU_RESEAU_DEMO_CAMUNDA#g" ./docker-compose.yml
 sed -i "s#NOM_DU_RESEAU_DEMO_CAMUNDA_JINJA2_VAR#$NOM_DU_RESEAU_DEMO_CAMUNDA#g" ./.env
 
+mkdir -p ./bpmn-modeler/
 
 docker-compose down --rmi all && docker system prune -f && docker-compose up -d
 

@@ -12,10 +12,14 @@ services:
         # CAMUNDA_ENV est en particulier utile pour définir une configuration de build pour la prod
         - POLLING_HOST=$POLLING_HOST
         - POLLING_PORT=$POLLING_PORT
+        - CONDUITE_IO_TASK_NAME=$CONDUITE_IO_TASK_NAME
+        - NUM_PORT_ECOUTE_PEGASUS_TASK_IN_CONTAINER=$NUM_PORT_ECOUTE_PEGASUS_TASK_IN_CONTAINER
     environment:
       # CAMUNDA_ENV est en particulier utile pour définir une configuration de RUN pour la prod
       - POLLING_HOST=$POLLING_HOST
       - POLLING_PORT=$POLLING_PORT
+      - CONDUITE_IO_TASK_NAME=$CONDUITE_IO_TASK_NAME
+      - NUM_PORT_ECOUTE_PEGASUS_TASK_IN_CONTAINER=$NUM_PORT_ECOUTE_PEGASUS_TASK_IN_CONTAINER
 #     ports:
 #       - $NUM_PORT_ECOUTE_CAMUNDA_WEB:$NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER
 #     expose:

@@ -29,6 +29,8 @@ export CAMUNDA_WEB_MODELER_OPTIONS=""
 # -->> will register be deployed to a Net Host of name [poste-devops-typique]
 export POLLING_HOST=poste-devops-typique
 export POLLING_PORT=$NUM_PORT_ECOUTE_CAMUNDA_ENGINE
+export CONDUITE_IO_TASK_NAME=preparer-les-sandwich
+export NUM_PORT_ECOUTE_PEGASUS_TASK_IN_CONTAINER=3000
 
 #
 # echo "[POLLING_HOST=$POLLING_HOST]"
@@ -69,7 +71,8 @@ mkdir -p ./bpmn-modeler/
 
 docker-compose down --rmi all && docker system prune -f && docker-compose up -d
 
-# Now we should find Camunda Modeler Desktop App :
-
-ls -allh ./bpmn-modeler/camunda-modeler
-./bpmn-modeler/camunda-modeler
+# Now we should be able to start the task execution with A Camunda Engine REST API call
+export CHARGE_DE_TRAVAIL_JSON='{"variables": {"amount": {"value":555,"type":"long"}, "item": {"value":"item-xyz"} } }'
+startImplementedTask {
+  curl -H "Content-Type: application/json" -X POST -d $CHARGE_DE_TRAVAIL_JSON "http://$POLLING_HOST:$POLLING_PORT/engine-rest/process-definition/key/$CONDUITE_IO_TASK_NAME/start"
+}

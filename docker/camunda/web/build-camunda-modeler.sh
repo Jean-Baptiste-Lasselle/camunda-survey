@@ -26,6 +26,6 @@ npm install --save bpmn-js-properties-panel bpmn-js-signavio-compat
 npm install 
 # npm audit fix
 
-npm run all
+# npm run all
 
 npm run build

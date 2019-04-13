@@ -47,7 +47,7 @@ RUN ./build-camunda-modeler.sh
 
 USER root
 
-# WORKDIR /root/modeler/camunda-modeler-3.0.1-linux-x64/ 
+WORKDIR /root/modeler/camunda-modeler-3.0.1-linux-x64/client
 
 EXPOSE $NUM_PORT_ECOUTE_CAMUNDA_WEB_IN_CONTAINER/tcp
 # Running as root, shoudl be changed to an non-root user, with 

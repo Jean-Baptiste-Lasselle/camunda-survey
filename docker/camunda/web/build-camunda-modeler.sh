@@ -26,4 +26,6 @@ npm install --save @bpmn-io/add-exporter @bpmn-io/align-to-origin @bpmn-io/repla
 npm install 
 # npm audit fix
 
+npm run all
+
 npm run build

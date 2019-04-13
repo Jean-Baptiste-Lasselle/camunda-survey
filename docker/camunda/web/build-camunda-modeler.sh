@@ -17,7 +17,10 @@ npm install --save-dev @babel/plugin-proposal-class-properties
 npm install --save-dev @babel/preset-env
 npm install --save-dev @babel/preset-react
 
-# install dependencies
+# install run dependencies
+npm install --save @bpmn-io/add-exporter @bpmn-io/align-to-origin @bpmn-io/replace-ids 
+# npm install --save bpmn-js-properties-panel bpmn-js-signavio-compat 
+# re-resolve saved dependencies
 # plus a few new dev dependencies, due to new transitive resolutions to be automatically resolved, instead of
 # finding them one after the other
 npm install 

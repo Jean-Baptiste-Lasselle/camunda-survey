@@ -6,12 +6,12 @@
 
 ### Installing the engine
 
-Just execute : 
+Just execute :
 
 ```bash
 export URI_DE_CE_REPO=https://github.com/Jean-Baptiste-Lasselle/camunda-survey
-mkdir -p ./camunda-survey/ 
-cd ./camunda-survey/ 
+mkdir -p ./camunda-survey/
+cd ./camunda-survey/
 git clone $URI_DE_CE_REPO ./
 chmod +x ./operations.sh
  ./operations.sh
@@ -21,7 +21,7 @@ chmod +x ./operations.sh
 
 ### Installing the Camunda Modeler
 
-The Camunda Modeler is a Desktop ELectronJS App, and you can install it on your machine with : 
+The Camunda Modeler is a Desktop ELectronJS App, and you can install it on your machine with :
 
 ```bash
 export CAMUNDA_WEB_MODELER_VERSION=3.0.1
@@ -30,11 +30,11 @@ export CAMUNDA_WEB_MODELER_DOWNLOAD_URI="https://camunda.org/release/camunda-mod
 curl -o ~/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64.tar.gz -L $CAMUNDA_WEB_MODELER_DOWNLOAD_URI
 mkdir ~/.camunda/
 tar -xvf ~/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64.tar.gz -C ~/.camunda/
-# Then run it with : 
-~/.camunda/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64/camunda-modeler
 # e.g.: ~/.camunda/camunda-modeler-3.0.1-linux-x64/camunda-modeler
 # Or :
 echo "export PATH=\"\$PATH:~/.camunda/camunda-modeler-$CAMUNDA_WEB_MODELER_VERSION-linux-x64/\"" >> ~/.bashrc
+# Then run it with a simple camunda-modeler  command
+camunda-modeler
 ```
 
 
@@ -50,15 +50,15 @@ Just GUI clicks n' drops at http://poste-devops-typique:8091/camunda
 
 https://docs.camunda.org/get-started/quick-start/service-task/
 
-* Un des points d'intégration est le nom donné à la tâche : 
+* Un des points d'intégration est le nom donné à la tâche :
 ```bash
 export CONDUITE_IO_TASK_NAME=tache-pegasus
 ```
-* qui est repris par le paramètre `topic`, que l'on configure dans le fichier `bpmn 2.0` : 
+* qui est repris par le paramètre `topic`, que l'on configure dans le fichier `bpmn 2.0` :
 
 ![param intégration impl taches bpmn](https://github.com/Jean-Baptiste-Lasselle/camunda-survey/raw/master/documentation/images/CAMUNDA_BPMN_TASK_IMPLEMENTATION_TOUS_LES_PARAMETRES_INTEGRATION_2019-04-13%2007-10-13.png)
 
-On remarquera enfin l'intégration à l'infrastructure avec le nom d'hôte et le numéro de port, qui sont aussi configurables par les variables d'environnement suivantes : 
+On remarquera enfin l'intégration à l'infrastructure avec le nom d'hôte et le numéro de port, qui sont aussi configurables par les variables d'environnement suivantes :
 
 ```bash
 
@@ -66,7 +66,7 @@ On remarquera enfin l'intégration à l'infrastructure avec le nom d'hôte et le
 # La valeur de CONDUITE_IO_TASK_NAME doit correspondre à celle vue dans
 # le screenshot ci-dessus, pour le paramètre `topic`, que l'on
 # configure dans le fichier `bpmn 2.0`
-# 
+#
 # export CONDUITE_IO_TASK_NAME=preparation-sandwich-operation-ninja
 export CONDUITE_IO_TASK_NAME=tache-pegasus
 export POLLING_HOST=poste-devops-typique
@@ -86,9 +86,21 @@ echo "Now You may execute the regular provisioning reicpe"
 
 https://github.com/Jean-Baptiste-Lasselle/camunda-survey/issues/3
 
-# ANNEXES 
+# ANNEXES
 
-## SOURCES Camunda
+## Build from SOURCES Camunda
 
-https://github.com/camunda/docker-camunda-bpm-platform
+* code source : https://github.com/camunda/docker-camunda-bpm-platform
+* Pour faire le build form source :
+  * j'ai commencé les travaux,
+  * J'ai encore des erreurs, mais il s'agit essentiellement d'un build webpack,
+  * je suis arrivé à résoudre les dépendances en dépilant les erreurs, dsn un katacoda
+  * et Voilà où j'en suis :
 
+
+```bash
+cd builds-from-source/camunda/modeler
+chmod +x ./operations.sh
+ ./operations.sh
+
+```

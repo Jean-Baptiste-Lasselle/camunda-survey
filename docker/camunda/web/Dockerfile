@@ -35,7 +35,7 @@ RUN git checkout "v$CAMUNDA_WEB_MODELER_VERSION"
 
 # BUILD APP
 ADD build-camunda-modeler.sh .
-RUN chmod +X ./build-camunda-modeler.sh
+RUN chmod +x ./build-camunda-modeler.sh
 RUN ./build-camunda-modeler.sh
 
 # RUN pwd && ls -allh

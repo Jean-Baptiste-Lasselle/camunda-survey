@@ -37,7 +37,7 @@ RUN npm install
 
 USER root
 
-WORKDIR /root/modeler/client
+WORKDIR /root/pegasus-task
 
 EXPOSE $NUM_PORT_ECOUTE_PEGASUS_TASK_IN_CONTAINER/tcp
 # Running as root, shoudl be changed to an non-root user, with

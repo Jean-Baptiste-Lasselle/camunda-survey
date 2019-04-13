@@ -61,7 +61,7 @@ sed -i "s#POLLING_PORT_JINJA2_VAR#$POLLING_PORT#g" ./.env
 
 
 #
-# Fichiers interpolés secondaires :
+#    Fichiers interpolés secondaires :
 # => Il s'agit des fichiers qui utilisent des variables qui ne peuvent être interpolées par l'environnement docker.
 #
 sed -i "s#NOM_DU_RESEAU_DEMO_CAMUNDA_JINJA2_VAR#$NOM_DU_RESEAU_DEMO_CAMUNDA#g" ./docker-compose.yml
@@ -72,7 +72,8 @@ mkdir -p ./bpmn-modeler/
 docker-compose down --rmi all && docker system prune -f && docker-compose up -d
 
 # Now we should be able to start the task execution with A Camunda Engine REST API call
-export CHARGE_DE_TRAVAIL_JSON='{"variables": {"amount": {"value":555,"type":"long"}, "item": {"value":"item-xyz"} } }'
-startImplementedTask {
+export CHARGE_DE_TRAVAIL_JSON='{"variables": {"amount": {"value":555,"type":"long"}, "item": {"value":"item-xyz"} } }' ;
+
+startImplementedTask () {
   curl -H "Content-Type: application/json" -X POST -d $CHARGE_DE_TRAVAIL_JSON "http://$POLLING_HOST:$POLLING_PORT/engine-rest/process-definition/key/$CONDUITE_IO_TASK_NAME/start"
 }

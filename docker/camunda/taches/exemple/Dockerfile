@@ -18,27 +18,13 @@ ENV NODE_ENV=production
 
 RUN apk update && apk add curl git tar
 
-# Installing Camunda Modeler App
-# RUN curl -o ./camunda-modeler-3.0.1-linux-x64.tar.gz -L $CAMUNDA_WEB_MODELER_DOWNLOAD_URI
+# Installing Camunda Task implementation Source Code (Shoudl later be a git cloned from a versioned source code referential, like a git repo )
 RUN mkdir /root/pegasus-task
-# RUN tar -xvf ./camunda-modeler-3.0.1-linux-x64.tar.gz -C /root/modeler/
-WORKDIR /root/pegasus-task
+
 
 # BUILD APP
 ADD task-implementation-source/ /root/pegasus-task/
 RUN npm install
-
-ADD ./start-camunda-modeler.sh .
-RUN cp ./start-camunda-modeler.sh /root/modeler/client/
-RUN chmod +x /root/modeler/client/start-camunda-modeler.sh
-
-
-# RUN pwd && ls -allh
-# RUN ls -allh /root/modeler/camunda-modeler-3.0.1-linux-x64
-# RUN chmod +x /root/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler
-# RUN ls -allh /root/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler
-# RUN cat ~/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler
-# RUN chmod +x ~/modeler/camunda-modeler-3.0.1-linux-x64/camunda-modeler.sh
 
 USER root
 

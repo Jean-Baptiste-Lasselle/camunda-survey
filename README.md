@@ -140,13 +140,17 @@ Le Camunda Modeler vous propose de paramétrer une chose apellée `business key`
 
 https://blog.camunda.com/post/2018/10/business-key/
 
-## Process Execution Accoutability
+## Process Execution Accountability
 
 Il y a la notion de `DashBoard` et `Reports` dans Camunda Engine, en tout cas pou rle client, s'il y a modularité.
 
-Donc, c qu'il faut savoir, c'est :
-* qu'il faut installer des plugins du composant `Cockpit` de `Camunda`
-* que les plugins à installer pour avoir le reporting des exécutons sont : ccc
+Donc, c qu'il faut savoir, c'est : 
+* qu'il n'y a pas besoin d' installer des plugins du composant `Cockpit` de `Camunda`, pour avoir une supervision minimale de l'exécution des processus; * Cependant, je pense qu'il y a vraiemnt un chantier, pour arracher l'orchestration des tâches, pour une solution matûre en terme de gestion de jobs reccurents, avec des évènements, je pense que https://github.com/huginn/huginn pourrait être un candidat intéresantpour rmeplacer tout ce bazar chez Camunda. Alternatives à Huginn :
+  * https://github.com/xuxueli/xxl-job  (paraît très fort, celui-là), et c'est du procution ready qui insite beaucoup sur le montoring temps réel)
+  * https://github.com/elasticjob/elastic-job-lite (de l'équipe `ELastic stacK`)
+  * https://github.com/mesos/chronos (de l'équipe `Apache Mesos`, mais le Dieu Chronos serait le bienvenu près de la Montagne...)
+  * **MAIS `HUGINN`** est utilisé par une solutions de gestion de ressources / project Management, `M-Link`, et un des architectes de la solition propriétaire M-Link, a fait un article dans lequel il confie avoir commencé à partir de Huginn, qui lui donne le principal de la partie monitoring des réseaux sociaux et autres évènementiels.
+* que d'autres plugins cockpit peeuvent être développés, pour agrémenter le reporting (mouais, c'est de l'angularjs, trop vieux)
 * que la notion de plugin pour `Cockpit`, dans `Camunda`, est documentée ici : https://docs.camunda.org/manual/7.8/webapps/cockpit/extend/plugins/
 * qu'à l'URL https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit, je trouve de exemples de plugins cockpit, pour le développement de nouveaux plugins.
 

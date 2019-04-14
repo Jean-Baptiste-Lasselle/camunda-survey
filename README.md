@@ -140,6 +140,25 @@ Le Camunda Modeler vous propose de paramétrer une chose apellée `business key`
 
 https://blog.camunda.com/post/2018/10/business-key/
 
+## Process Execution Accoutability
+
+Il y a la notion de `DashBoard` et `Reports` dans Camunda Engine, en tout cas pou rle client, s'il y a modularité.
+
+Donc, c qu'il faut savoir, c'est :
+* qu'il faut installer des plugins du composant `Cockpit` de `Camunda`
+* que les plugins à installer pour avoir le reporting des exécutons sont : ccc
+* que la notion de plugin pour `Cockpit`, dans `Camunda`, est documentée ici : https://docs.camunda.org/manual/7.8/webapps/cockpit/extend/plugins/
+* qu'à l'URL https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit, je trouve de exemples de plugins cockpit, pour le développement de nouveaux plugins.
+
+## `BPEL` et `Camunda`
+
+* Pour obtenir l'abstraction, entre les uses cases écrits en BPMN, stipulant parfois des éléments techniques, et l'implémentation réelle derrière, on peut faire appel à la notion de `B.P.E.L. _(Business Process Execution Language)_`.
+* Ainsi, On pourrait faire un worker enregistré auprès du `Camunda Engine`, et ce worker serait : Le service moteur BPEL.
+* Ainsi, toutes les tâche BPMN automatisées, par des logiciels présents dans le SI, seront invoquées en appelant un seul et unique worker (qui deviendra un service Kubernetes, s'il le faut avec une Queue `Kafka` derrière, pour traiter transactionnellement et **dans l'ordre** (merci Kafka), toutes les invocations de services techniques )
+* Donc, à chaque fois qu'une tâche est exécutée, on invoque le moteur Camunda, pour lui demander d'exécuter un Processus Métier, en lui fournissantt :
+  * l'ID du service technique à invoquer, sans se préoccuper savoir comment celui-ci est implémenté
+  * les paramètres de l'invocation : si par exemple, il s'agit d'envoyer un email, on fournira une adresse e-mail pour le `From`, une adresse e-mail pour le `To`, une chaîne de caractères pour le  `Subject`, une chaîne de caractères pour le  `message`, etc...    
+
 # My Conclusions
 
 * With Camunda Engine and Camunda Modeler, We have enough to get a complete workflow working wih BPMN, and that flow is automation-compatible (we'll be able to automate the process).
